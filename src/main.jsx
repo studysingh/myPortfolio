@@ -8,12 +8,12 @@ import Projects from "./projects.jsx";
 
 const router = createBrowserRouter([
   {
-    path: "/portfolio/",
+    path: "/myPortfolio",
     element: <App />,
     children: [
-      { path: "/portfolio/", element: <Home /> },
-      { path: "/portfolio/about/", element: <About /> },
-      { path: "/portfolio/projects/", element: <Projects /> },
+      { path: "/myPortfolio", element: <Home /> },
+      { path: "/myPortfolio/about/", element: <About /> },
+      { path: "/myPortfolio/projects/", element: <Projects /> },
     ],
   },
 ]);

@@ -14,7 +14,7 @@ const AbovePageSection = () => {
           >
             Get CV
           </a>
-          <Link className="ap-link-2" to="/portfolio/projects">
+          <Link className="ap-link-2" to="/myPortfolio/projects">
             Project
           </Link>
         </div>

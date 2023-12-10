@@ -10,7 +10,7 @@ const BelowPageSection = () => {
             I am Currently pursuing Bachelor of Technology in Computer Science
             and Engineering at IIT(BHU) Varanasi.
           </p>
-          <Link className="learn-more" to="/portfolio/about">
+          <Link className="learn-more" to="/myPortfolio/about">
             Learn More
           </Link>
         </div>
