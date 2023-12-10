@@ -1,12 +1,7 @@
 import { Link } from "react-router-dom";
+import React from "react";
 
 const Home = () => {
-  // imageBasePath gives us the path of the images folder from the root directory
-  var imageBasePath =
-    window.location.protocol +
-    "//" +
-    window.location.host +
-    "/myPortfolio/public/images/";
   return (
     <>
       <section className="abovePage">
@@ -27,19 +22,17 @@ const Home = () => {
             </Link>
           </div>
         </div>
-        <img
-          className="abovePageImg"
-          src={imageBasePath + "pgabove.png"}
-          alt="img1"
-        />
-      </section>{" "}
+
+        <img className="abovePageImg" src="./homeImg/pgabove.png" alt="img1" />
+      </section>
       <section className="belowPage">
         <img
+          type="image/html"
           className="belowPageImg"
-          src={imageBasePath + "pgbelow.png"}
+          src="./homeImg/pgbelow.png"
           alt="img2"
         />
-        {/* <img className="product-img" src="./images/myntra1.png" alt="myntra" /> */}
+
         <div className="belowPageContent">
           <h1 className="bp-heading">Let's Introduce About Myself</h1>
           <div className="bp-description">
