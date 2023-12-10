@@ -281,7 +281,7 @@
     font-size: 12px;
   }
   .belowPage {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
   .project-details {
     flex-direction: column;
