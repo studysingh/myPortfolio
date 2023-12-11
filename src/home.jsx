@@ -15,7 +15,7 @@ const Home = () => {
               target="blank"
               href="https://drive.google.com/file/d/1S6NR4Kso670Qhk-zq3xI0NQjrapFfiPU/view?usp=drivesdk"
             >
-              Get CV
+              Get Resume
             </a>
             <Link className="ap-link-2" to="/myPortfolio/projects">
               Project

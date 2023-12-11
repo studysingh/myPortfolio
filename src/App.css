@@ -18,7 +18,7 @@
 }
 .nav-bar {
   font-size: 1em;
-  font-weight: 600;
+  font-weight: 700;
 }
 .nav-link {
   text-decoration: none;
@@ -32,7 +32,11 @@
   transition-duration: 0.5s;
 }
 .nav-link:hover {
-  font-weight: 700;
+  font-size: 1.02em;
+  background: linear-gradient(to right, rgb(55, 5, 255), rgb(249, 2, 125));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 .name {
   text-decoration: none;
@@ -50,7 +54,7 @@
 }
 .abovePage {
   width: 100vw;
-  background-color: rgb(180, 208, 233);
+  /* background-color: rgb(180, 208, 233); */
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -123,7 +127,7 @@
 }
 .belowPage {
   width: 100vw;
-  background-color: rgb(180, 208, 233);
+  /* background-color: rgb(180, 208, 233); */
   display: flex;
   justify-content: space-around;
   overflow-x: hidden;
@@ -174,7 +178,7 @@
 }
 .about {
   width: 100vw;
-  background-color: rgb(180, 208, 233);
+  /* background-color: rgb(180, 208, 233); */
   min-height: 80vh;
   display: flex;
   flex-direction: column;
@@ -222,7 +226,7 @@
 }
 .project-container {
   width: 100vw;
-  background-color: rgb(180, 208, 233);
+  /* background-color: rgb(180, 208, 233); */
   min-height: 80vh;
 }
 .project {
@@ -265,7 +269,10 @@
 }
 @media screen and (max-width: 500px) {
   .name {
-    font-size: 1em;
+    font-size: 1.2em;
+  }
+  .abovePageContent {
+    text-align: center;
   }
   .nav-bar {
     font-size: 0.8em;

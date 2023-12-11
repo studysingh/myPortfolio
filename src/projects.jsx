@@ -36,7 +36,7 @@ const Projects = () => {
             efficiently. With a clean and user-friendly interface, this website
             makes task management a breeze, allowing users to stay focused and
             organized.Users can add their task and, after completing it, delete
-            it from the site .{" "}
+            it from the site .
             <a
               className="project-link"
               href="https://github.com/studysingh/h_todo"
