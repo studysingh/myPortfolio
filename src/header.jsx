@@ -5,7 +5,7 @@ const Header = () => {
     <header className="header">
       <span className="name">Sandeep Singh</span>
       <nav className="nav-bar">
-        <Link to="/myPortfolio" className="nav-link">
+        <Link to="/myPortfolio/" className="nav-link">
           Home
         </Link>
         <Link to="/myPortfolio/projects" className="nav-link">
