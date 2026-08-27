@@ -1,127 +1,146 @@
+import { useEffect, useMemo, useState } from "react";
 import {
+  FiArrowRight,
   FiArrowUpRight,
+  FiCpu,
+  FiDatabase,
   FiDownload,
   FiGithub,
   FiLinkedin,
   FiMail,
   FiMapPin,
+  FiServer,
+  FiTerminal,
 } from "react-icons/fi";
 
 const assetBase = import.meta.env.BASE_URL;
 const resumeUrl = `${assetBase}Sandeep_Singh_Resume.pdf`;
 const profilePhoto = `${assetBase}images/sandeep1.jpg`;
 
+const links = {
+  github: "https://github.com/studysingh",
+  linkedin: "https://www.linkedin.com/in/sandeep-singh-88304825b/",
+  email: "mailto:sandeep.singh.pro8@gmail.com",
+};
+
 const profileLinks = [
-  { label: "GitHub", href: "https://github.com/studysingh", icon: FiGithub },
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/sandeep-singh-88304825b/",
-    icon: FiLinkedin,
-  },
-  { label: "Email", href: "mailto:sandeep.singh.pro8@gmail.com", icon: FiMail },
+  { label: "GitHub", href: links.github, icon: FiGithub },
+  { label: "LinkedIn", href: links.linkedin, icon: FiLinkedin },
+  { label: "Email", href: links.email, icon: FiMail },
 ];
 
 const experience = [
   {
     company: "Teradata",
+    logo: `${assetBase}logos/teradata.svg`,
     role: "AI Engineer",
     dates: "Jun 2026 - Present",
     location: "Remote",
+    tone: "orange",
     summary:
-      "Production cloud, automation, observability, and AI-assisted requirements engineering.",
+      "Production cloud services, deployment automation, Kubernetes security, observability, and AI-assisted requirements engineering.",
     highlights: [
-      "Implemented CI/CD automation that triggers Docker image builds from deployment configuration, shell script, and Kubernetes manifest changes.",
-      "Built Kubernetes secret management with External Secrets Operator, integrating AWS Secrets Manager and supporting Azure and GCP cloud environments.",
-      "Contributed to a requirements engineering automation pipeline that analyzes software requirements and generates relevant requirement-gathering questions.",
-      "Created Grafana dashboards for production monitoring across service health, deployment metrics, and operational performance.",
+      "Implemented CI/CD automation that triggers Docker image builds from deployment configuration, shell script, and Kubernetes YAML manifest changes.",
+      "Built Kubernetes secret management with External Secrets Operator, integrating AWS Secrets Manager and supporting Azure and GCP environments.",
+      "Contributed to a requirements engineering pipeline that analyzes software requirements and generates relevant discovery questions.",
+      "Created Grafana dashboards for service health, deployment metrics, and operational performance visibility.",
     ],
     tech: ["AWS", "Docker", "Kubernetes", "ESO", "Grafana", "CI/CD", "Shell"],
   },
   {
     company: "GE3S",
+    logo: `${assetBase}logos/ge3s.png`,
     role: "Full Stack Developer",
     dates: "Feb 2026 - Jun 2026",
     location: "Remote",
+    tone: "green",
     summary:
-      "Backend APIs, authentication, RAG systems, payments, email automation, and cloud deployment.",
+      "Centralized web platforms, secure authentication, RAG systems, payment flows, email automation, and cloud deployment.",
     highlights: [
-      "Developed a centralized backend and web platform with React, Node.js, Express.js, and MongoDB for multiple organizational workflows.",
-      "Built RAG systems for question answering over sustainability reports by integrating document retrieval with LLM-based responses.",
-      "Implemented SSO and 2FA for secure authentication across organizational tools and services.",
-      "Integrated OpenAI, Stripe, and email automation, then containerized and deployed applications using Docker and AWS.",
+      "Developed backend and web platform capabilities using React, Node.js, Express.js, and MongoDB for multiple organizational workflows.",
+      "Built Retrieval-Augmented Generation systems for question answering over sustainability reports with document retrieval and LLM responses.",
+      "Implemented SSO and 2FA across organizational tools and services.",
+      "Integrated OpenAI, Stripe, and email automation, then containerized and deployed applications with Docker and AWS.",
     ],
     tech: ["React", "Node.js", "Express.js", "MongoDB", "RAG", "OpenAI", "Stripe", "AWS", "Docker"],
   },
   {
     company: "ZoomInfo",
+    logo: `${assetBase}logos/zoominfo.png`,
     role: "Software Engineering Intern",
     dates: "May 2025 - Jul 2025",
     location: "Remote",
+    tone: "red",
     summary:
-      "Data extraction, preprocessing, LLM classification, API design, and workflow orchestration.",
+      "Data extraction pipelines, content preprocessing, LLM classification, REST APIs, and asynchronous workflow orchestration.",
     highlights: [
-      "Developed a scalable web crawler to extract product URLs, metadata, and structured content using keyword-based discovery logic.",
-      "Reduced noisy and duplicate web data through cleaning and preprocessing before downstream analysis.",
-      "Built an LLM-based classification pipeline to identify value propositions and pain points from extracted content.",
-      "Designed RESTful APIs with Next.js and orchestrated asynchronous workflows using Temporal.io for improved failure handling.",
+      "Developed a scalable crawler to extract product URLs, metadata, and structured content from company websites.",
+      "Reduced noisy, duplicate, and inconsistent extracted data through cleaning and preprocessing.",
+      "Built an LLM classification pipeline for value propositions and pain points.",
+      "Designed RESTful APIs with Next.js and orchestrated asynchronous workflows using Temporal.io.",
     ],
     tech: ["Python", "BeautifulSoup", "Selenium", "Next.js", "Temporal.io", "LLM APIs"],
   },
 ];
 
-const skills = [
+const principles = [
+  "Ship reliable backend services",
+  "Make production systems visible",
+  "Turn ambiguous requirements into APIs",
+  "Automate the repeated path",
+];
+
+const skillGroups = [
   {
-    group: "Languages",
-    items: ["C++", "Python", "JavaScript", "Shell Scripting", "SQL"],
+    id: "systems",
+    label: "Backend",
+    icon: FiServer,
+    lead: "Service boundaries, API contracts, authentication, and workflow logic.",
+    items: ["Node.js", "Express.js", "Next.js", "REST APIs", "Authentication", "SQL"],
   },
   {
-    group: "Backend and APIs",
-    items: ["Node.js", "Express.js", "Next.js", "REST APIs", "Authentication"],
-  },
-  {
-    group: "Cloud and DevOps",
+    id: "cloud",
+    label: "Cloud",
+    icon: FiCpu,
+    lead: "Production deployment surfaces across cloud, containers, and observability.",
     items: ["AWS", "Docker", "Kubernetes", "Linux", "CI/CD", "Grafana"],
   },
   {
-    group: "AI Systems",
+    id: "ai",
+    label: "AI Workflows",
+    icon: FiTerminal,
+    lead: "LLM-backed systems for retrieval, classification, and requirements analysis.",
     items: ["LLM APIs", "RAG", "MCP", "Vector Databases", "Document Retrieval"],
   },
   {
-    group: "Computer Science",
-    items: ["Data Structures", "Algorithms", "OS", "DBMS", "Computer Networks", "OOP"],
-  },
-  {
-    group: "Data and Workflows",
+    id: "data",
+    label: "Data",
+    icon: FiDatabase,
+    lead: "Extraction, persistence, cleanup, and asynchronous processing.",
     items: ["MongoDB", "Temporal.io", "BeautifulSoup", "Selenium", "Git"],
   },
-];
-
-const achievements = [
   {
-    value: "480+",
-    label: "LeetCode problems solved",
-    detail: "100 Days badge earned in 2026.",
-    href: "https://leetcode.com/studysingh/",
+    id: "languages",
+    label: "Languages",
+    icon: FiTerminal,
+    lead: "Daily implementation tools backed by computer science fundamentals.",
+    items: ["C++", "Python", "JavaScript", "Shell Scripting"],
   },
   {
-    value: "250+",
-    label: "GeeksforGeeks problems solved",
-    detail: "Awarded GFG T-Shirt in 2026.",
-    href: "https://auth.geeksforgeeks.org/user/studysinlsa/",
-  },
-  {
-    value: "Top 0.5%",
-    label: "JEE Advanced rank",
-    detail: "Secured a nationwide rank within the top 0.5% of candidates in 2022.",
+    id: "cs",
+    label: "CS Core",
+    icon: FiCpu,
+    lead: "The foundation behind system design and implementation choices.",
+    items: ["Data Structures", "Algorithms", "OS", "DBMS", "Computer Networks", "OOP"],
   },
 ];
 
 const education = [
   {
     institution: "Indian Institute of Technology (BHU), Varanasi",
-    program: "Bachelor of Technology in Computer Science and Engineering",
+    program: "B.Tech in Computer Science and Engineering",
     dates: "2022 - 2026",
-    result: "CGPA: 7.74",
+    result: "CGPA 7.74",
   },
   {
     institution: "PT H S R L Indian Public School, Vrindavan, Mathura",
@@ -137,24 +156,116 @@ const education = [
   },
 ];
 
+const HeroField = () => {
+  const fieldNodes = useMemo(
+    () =>
+      Array.from({ length: 42 }, (_, index) => ({
+        id: index,
+        x: (index * 31) % 100,
+        y: (index * 47) % 100,
+        delay: (index % 9) * 0.24,
+      })),
+    []
+  );
+
+  return (
+    <div className="hero-field" aria-hidden="true">
+      <div className="field-grid" />
+      <div className="field-orbit field-orbit-one" />
+      <div className="field-orbit field-orbit-two" />
+      {fieldNodes.map((node) => (
+        <span
+          className="field-node"
+          key={node.id}
+          style={{
+            "--node-x": `${node.x}%`,
+            "--node-y": `${node.y}%`,
+            "--node-delay": `${node.delay}s`,
+          }}
+        />
+      ))}
+    </div>
+  );
+};
+
 const Home = () => {
+  const [activeRole, setActiveRole] = useState(0);
+  const [activeSkill, setActiveSkill] = useState(skillGroups[0].id);
+
+  const selectedSkill = skillGroups.find((group) => group.id === activeSkill) ?? skillGroups[0];
+
+  useEffect(() => {
+    const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    if (!canHover) return undefined;
+
+    const handlePointerMove = (event) => {
+      const x = Math.round((event.clientX / window.innerWidth) * 100);
+      const y = Math.round((event.clientY / window.innerHeight) * 100);
+      document.documentElement.style.setProperty("--cursor-x", `${x}%`);
+      document.documentElement.style.setProperty("--cursor-y", `${y}%`);
+    };
+
+    window.addEventListener("pointermove", handlePointerMove);
+    return () => window.removeEventListener("pointermove", handlePointerMove);
+  }, []);
+
+  useEffect(() => {
+    const revealItems = document.querySelectorAll("[data-reveal]");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: "0px 0px -12% 0px", threshold: 0.16 }
+    );
+
+    revealItems.forEach((item) => observer.observe(item));
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const roleItems = document.querySelectorAll("[data-role-index]");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const active = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (active) {
+          setActiveRole(Number(active.target.getAttribute("data-role-index")));
+        }
+      },
+      { rootMargin: "-24% 0px -46% 0px", threshold: [0.2, 0.45, 0.7] }
+    );
+
+    roleItems.forEach((item) => observer.observe(item));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       <section className="hero section" id="home" aria-labelledby="hero-title">
-        <div className="section-inner hero-grid">
+        <HeroField />
+        <div className="section-inner hero-layout">
           <div className="hero-copy">
-            <p className="eyebrow">Software Engineer</p>
-            <h1 id="hero-title">Sandeep Singh builds backend systems, APIs, and cloud applications.</h1>
+            <p className="eyebrow hero-kicker">Software Engineer / AI Engineer</p>
+            <h1 id="hero-title">
+              Sandeep Singh builds production software across cloud, APIs, and AI workflows.
+            </h1>
             <p className="hero-lede">
-              AI Engineer at Teradata with experience across production CI/CD automation,
-              Kubernetes secret management, REST APIs, RAG systems, and scalable data workflows.
+              AI Engineer at Teradata with hands-on work in CI/CD automation, Kubernetes secret
+              management, REST APIs, RAG systems, web crawling pipelines, and production observability.
             </p>
-            <div className="hero-actions">
-              <a className="button button-primary" href="#contact">
+            <div className="hero-actions" aria-label="Primary actions">
+              <a className="button button-primary magnetic" href="#contact">
                 Contact
-                <FiArrowUpRight aria-hidden="true" />
+                <FiArrowRight aria-hidden="true" />
               </a>
-              <a className="button button-secondary" href={resumeUrl} target="_blank" rel="noreferrer">
+              <a className="button button-secondary magnetic" href={resumeUrl} target="_blank" rel="noreferrer">
                 <FiDownload aria-hidden="true" />
                 Resume
               </a>
@@ -169,30 +280,23 @@ const Home = () => {
             </div>
           </div>
 
-          <aside className="hero-panel" aria-label="Career snapshot">
-            <div className="hero-identity">
-              <img src={profilePhoto} alt="Sandeep Singh" />
-              <div>
-                <span>Sandeep Singh</span>
-                <strong>AI Engineer at Teradata</strong>
-              </div>
+          <aside className="identity-panel" aria-label="Career snapshot">
+            <div className="identity-photo-wrap">
+              <img src={profilePhoto} alt="Sandeep Singh" className="identity-photo" />
+              <span className="photo-scanline" aria-hidden="true" />
             </div>
-            <div className="availability">
-              <span className="status-dot" aria-hidden="true" />
-              Remote engineering experience
-            </div>
-            <dl className="snapshot-grid">
+            <dl className="signal-list">
               <div>
-                <dt>Current Role</dt>
-                <dd>AI Engineer, Teradata</dd>
+                <dt>Current</dt>
+                <dd>AI Engineer at Teradata</dd>
               </div>
               <div>
-                <dt>Core Stack</dt>
-                <dd>Python, JavaScript, AWS, Docker, Kubernetes</dd>
+                <dt>Focus</dt>
+                <dd>Backend services, cloud deployment, automation, applied AI</dd>
               </div>
               <div>
-                <dt>Problem Solving</dt>
-                <dd>730+ coding problems across LeetCode and GFG</dd>
+                <dt>Base</dt>
+                <dd>IIT (BHU), Varanasi / Computer Science</dd>
               </div>
             </dl>
           </aside>
@@ -200,133 +304,157 @@ const Home = () => {
       </section>
 
       <section className="section about-section" id="about" aria-labelledby="about-title">
-        <div className="section-inner split-layout">
+        <div className="section-inner about-layout" data-reveal>
           <div>
-            <p className="section-kicker">About</p>
-            <h2 id="about-title">An engineer oriented around reliable systems and applied problem solving.</h2>
+            <p className="section-kicker">01 / Engineering Identity</p>
+            <h2 id="about-title">Backend-minded, production-aware, and comfortable where systems meet ambiguity.</h2>
           </div>
-          <div className="prose">
+          <div className="about-copy">
             <p>
-              I work across backend services, cloud infrastructure, and AI-enabled software. My recent
-              experience includes production deployment automation, Kubernetes workflows, REST API design,
-              RAG systems, web crawling pipelines, and observability dashboards.
+              I work across the layers that make software dependable: API design, cloud deployment,
+              containerized services, authentication, data workflows, and LLM-backed automation.
             </p>
             <p>
-              The common thread is execution: translate ambiguous requirements into maintainable systems,
-              design APIs that support real workflows, and keep production software visible, secure, and
-              deployable.
+              My recent work has moved from crawling and classifying external web data, to shipping
+              full-stack sustainability tools, to supporting production cloud services and Kubernetes
+              workflows at Teradata.
+            </p>
+            <div className="principle-strip" aria-label="Engineering principles">
+              {principles.map((principle) => (
+                <span key={principle}>{principle}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section experience-section" id="experience" aria-labelledby="experience-title">
+        <div className="section-inner">
+          <div className="section-heading" data-reveal>
+            <p className="section-kicker">02 / Experience</p>
+            <h2 id="experience-title">Professional work is the center of the story.</h2>
+            <p>
+              Three recent roles trace a clear arc: data-heavy engineering, product-facing full-stack
+              systems, and production cloud automation.
             </p>
           </div>
-        </div>
-      </section>
 
-      <section className="section" id="experience" aria-labelledby="experience-title">
-        <div className="section-inner">
-          <div className="section-heading">
-            <p className="section-kicker">Experience</p>
-            <h2 id="experience-title">Production-facing engineering work across cloud, APIs, and AI systems.</h2>
-          </div>
-          <div className="timeline">
-            {experience.map((role) => (
-              <article className="timeline-item" key={`${role.company}-${role.role}`}>
-                <div className="timeline-marker" aria-hidden="true" />
-                <div className="timeline-content">
-                  <div className="role-head">
-                    <div>
-                      <h3>{role.role}</h3>
-                      <p>{role.company}</p>
-                    </div>
-                    <div className="role-meta">
-                      <span>{role.dates}</span>
-                      <span>
-                        <FiMapPin aria-hidden="true" />
-                        {role.location}
-                      </span>
-                    </div>
-                  </div>
-                  <p className="role-summary">{role.summary}</p>
-                  <ul className="impact-list">
-                    {role.highlights.map((highlight) => (
-                      <li key={highlight}>{highlight}</li>
-                    ))}
-                  </ul>
-                  <div className="tech-list" aria-label={`${role.company} technologies`}>
-                    {role.tech.map((tech) => (
-                      <span key={tech}>{tech}</span>
-                    ))}
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+          <div className="experience-stage">
+            <aside className={`company-stage tone-${experience[activeRole].tone}`} aria-label="Active company">
+              <span className="stage-index">0{activeRole + 1}</span>
+              <img src={experience[activeRole].logo} alt={`${experience[activeRole].company} logo`} />
+              <strong>{experience[activeRole].company}</strong>
+              <span>{experience[activeRole].role}</span>
+            </aside>
 
-      <section className="section skills-section" id="skills" aria-labelledby="skills-title">
-        <div className="section-inner">
-          <div className="section-heading">
-            <p className="section-kicker">Technical Expertise</p>
-            <h2 id="skills-title">A practical stack for backend, cloud, automation, and AI workflows.</h2>
-          </div>
-          <div className="skills-grid">
-            {skills.map((category) => (
-              <article className="skill-group" key={category.group}>
-                <h3>{category.group}</h3>
-                <div className="skill-tags">
-                  {category.items.map((item) => (
-                    <span key={item}>{item}</span>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section" id="achievements" aria-labelledby="achievements-title">
-        <div className="section-inner">
-          <div className="section-heading compact">
-            <p className="section-kicker">Problem Solving</p>
-            <h2 id="achievements-title">Signals of consistent analytical practice.</h2>
-          </div>
-          <div className="achievement-grid">
-            {achievements.map((achievement) => {
-              const Wrapper = achievement.href ? "a" : "div";
-              return (
-                <Wrapper
-                  className="achievement"
-                  key={achievement.label}
-                  href={achievement.href}
-                  target={achievement.href ? "_blank" : undefined}
-                  rel={achievement.href ? "noreferrer" : undefined}
+            <div className="experience-flow">
+              {experience.map((role, index) => (
+                <article
+                  className={`experience-item ${activeRole === index ? "is-active" : ""}`}
+                  data-role-index={index}
+                  key={`${role.company}-${role.role}`}
+                  onMouseEnter={() => setActiveRole(index)}
+                  onFocus={() => setActiveRole(index)}
+                  tabIndex="0"
                 >
-                  <span className="achievement-value">{achievement.value}</span>
-                  <span className="achievement-label">{achievement.label}</span>
-                  <span className="achievement-detail">{achievement.detail}</span>
-                </Wrapper>
-              );
-            })}
+                  <div className="experience-marker" aria-hidden="true">
+                    <span />
+                  </div>
+                  <div className="experience-content">
+                    <div className="role-head">
+                      <div>
+                        <p>{role.company}</p>
+                        <h3>{role.role}</h3>
+                      </div>
+                      <div className="role-meta">
+                        <span>{role.dates}</span>
+                        <span>
+                          <FiMapPin aria-hidden="true" />
+                          {role.location}
+                        </span>
+                      </div>
+                    </div>
+                    <p className="role-summary">{role.summary}</p>
+                    <ul className="impact-list">
+                      {role.highlights.map((highlight) => (
+                        <li key={highlight}>{highlight}</li>
+                      ))}
+                    </ul>
+                    <div className="tech-ribbon" aria-label={`${role.company} technologies`}>
+                      {role.tech.map((tech) => (
+                        <span key={tech}>{tech}</span>
+                      ))}
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section stack-section" id="stack" aria-labelledby="stack-title">
+        <div className="section-inner stack-layout">
+          <div className="stack-copy" data-reveal>
+            <p className="section-kicker">03 / Technical Universe</p>
+            <h2 id="stack-title">A stack organized by the problems it solves.</h2>
+            <p>
+              The technologies are grouped by actual resume-backed usage: backend services, cloud
+              delivery, AI workflows, data pipelines, languages, and computer science fundamentals.
+            </p>
+          </div>
+
+          <div className="stack-visual" data-reveal>
+            <div className="constellation" aria-label="Technology categories">
+              {skillGroups.map((group, index) => {
+                const Icon = group.icon;
+                return (
+                  <button
+                    className={`constellation-node node-${index + 1} ${activeSkill === group.id ? "is-active" : ""}`}
+                    key={group.id}
+                    type="button"
+                    onClick={() => setActiveSkill(group.id)}
+                    aria-pressed={activeSkill === group.id}
+                  >
+                    <Icon aria-hidden="true" />
+                    <span>{group.label}</span>
+                  </button>
+                );
+              })}
+              <div className="constellation-core">
+                <span>Software</span>
+                <strong>Systems</strong>
+              </div>
+            </div>
+
+            <article className="skill-detail" aria-live="polite">
+              <p>{selectedSkill.label}</p>
+              <h3>{selectedSkill.lead}</h3>
+              <div className="skill-cloud">
+                {selectedSkill.items.map((item) => (
+                  <span key={item}>{item}</span>
+                ))}
+              </div>
+            </article>
           </div>
         </div>
       </section>
 
       <section className="section education-section" id="education" aria-labelledby="education-title">
-        <div className="section-inner split-layout">
+        <div className="section-inner education-layout" data-reveal>
           <div>
-            <p className="section-kicker">Education</p>
+            <p className="section-kicker">04 / Background</p>
             <h2 id="education-title">Computer Science foundation from IIT (BHU), Varanasi.</h2>
           </div>
           <div className="education-list">
             {education.map((item) => (
               <article className="education-item" key={item.institution}>
                 <div>
+                  <span>{item.dates}</span>
                   <h3>{item.institution}</h3>
                   <p>{item.program}</p>
                 </div>
-                <div className="education-meta">
-                  <span>{item.dates}</span>
-                  <strong>{item.result}</strong>
-                </div>
+                <strong>{item.result}</strong>
               </article>
             ))}
           </div>
@@ -334,32 +462,36 @@ const Home = () => {
       </section>
 
       <section className="section contact-section" id="contact" aria-labelledby="contact-title">
-        <div className="section-inner contact-card">
+        <div className="section-inner contact-layout" data-reveal>
           <div>
-            <p className="section-kicker">Contact</p>
-            <h2 id="contact-title">Recruiters and engineering teams can reach me directly.</h2>
-            <p>
-              I am reachable by email, LinkedIn, and GitHub. My resume is linked here and in the
-              navigation for quick evaluation.
-            </p>
+            <p className="section-kicker">05 / Let&apos;s Connect</p>
+            <h2 id="contact-title">For recruiter screens, engineering conversations, and role discussions.</h2>
           </div>
-          <div className="contact-actions">
-            <a className="button button-primary" href="mailto:sandeep.singh.pro8@gmail.com">
-              <FiMail aria-hidden="true" />
-              Email me
-            </a>
-            <a className="button button-secondary" href="https://www.linkedin.com/in/sandeep-singh-88304825b/" target="_blank" rel="noreferrer">
-              <FiLinkedin aria-hidden="true" />
-              LinkedIn
-            </a>
-            <a className="button button-secondary" href="https://github.com/studysingh" target="_blank" rel="noreferrer">
-              <FiGithub aria-hidden="true" />
-              GitHub
-            </a>
-            <a className="button button-secondary" href={resumeUrl} target="_blank" rel="noreferrer">
-              <FiDownload aria-hidden="true" />
-              Resume
-            </a>
+          <div className="contact-panel">
+            <p>
+              Reach me directly by email, review the resume, or use LinkedIn and GitHub for professional
+              context.
+            </p>
+            <div className="contact-actions">
+              <a className="button button-primary magnetic" href={links.email}>
+                <FiMail aria-hidden="true" />
+                Email
+              </a>
+              <a className="button button-secondary magnetic" href={resumeUrl} target="_blank" rel="noreferrer">
+                <FiDownload aria-hidden="true" />
+                Resume
+              </a>
+              <a className="button button-secondary magnetic" href={links.linkedin} target="_blank" rel="noreferrer">
+                <FiLinkedin aria-hidden="true" />
+                LinkedIn
+                <FiArrowUpRight aria-hidden="true" />
+              </a>
+              <a className="button button-secondary magnetic" href={links.github} target="_blank" rel="noreferrer">
+                <FiGithub aria-hidden="true" />
+                GitHub
+                <FiArrowUpRight aria-hidden="true" />
+              </a>
+            </div>
           </div>
         </div>
       </section>

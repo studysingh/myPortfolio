@@ -4,8 +4,7 @@ import { FiDownload, FiMenu, FiX } from "react-icons/fi";
 const navItems = [
   { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
-  { label: "Skills", href: "#skills" },
-  { label: "Achievements", href: "#achievements" },
+  { label: "Stack", href: "#stack" },
   { label: "Education", href: "#education" },
   { label: "Contact", href: "#contact" },
 ];
@@ -28,7 +27,7 @@ const Header = () => {
           setActiveSection(visible.target.id);
         }
       },
-      { rootMargin: "-18% 0px -65% 0px", threshold: [0.12, 0.25, 0.5] }
+      { rootMargin: "-20% 0px -64% 0px", threshold: [0.12, 0.35, 0.6] }
     );
 
     sectionIds.forEach((id) => {
@@ -89,4 +88,5 @@ const Header = () => {
     </header>
   );
 };
+
 export default Header;

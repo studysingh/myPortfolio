@@ -7,7 +7,7 @@ const Footer = () => {
         <a className="footer-brand" href="#home">
           Sandeep Singh
         </a>
-        <p>Software Engineer focused on backend systems, cloud applications, and applied AI workflows.</p>
+        <p>Software Engineer focused on backend systems, cloud infrastructure, and applied AI workflows.</p>
       </div>
       <div className="footer-links" aria-label="Social links">
         <a href="https://github.com/studysingh" target="_blank" rel="noreferrer" aria-label="GitHub profile">
@@ -28,4 +28,5 @@ const Footer = () => {
     </footer>
   );
 };
+
 export default Footer;
