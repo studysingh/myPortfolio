@@ -1,31 +1,30 @@
-import { FaGithub } from "react-icons/fa6";
-import { BsLinkedin } from "react-icons/bs";
-import { FaSquareInstagram } from "react-icons/fa6";
-import { IoMdMail } from "react-icons/io";
+import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
 
 const Footer = () => {
   return (
-    <footer className="footer">
-      <div className="footer-link">
-        <a href="https://github.com/studysingh" target="blank">
-          <FaGithub />
+    <footer className="site-footer">
+      <div>
+        <a className="footer-brand" href="#home">
+          Sandeep Singh
+        </a>
+        <p>Software Engineer focused on backend systems, cloud applications, and applied AI workflows.</p>
+      </div>
+      <div className="footer-links" aria-label="Social links">
+        <a href="https://github.com/studysingh" target="_blank" rel="noreferrer" aria-label="GitHub profile">
+          <FiGithub aria-hidden="true" />
         </a>
         <a
           href="https://www.linkedin.com/in/sandeep-singh-88304825b/"
-          target="blank"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="LinkedIn profile"
         >
-          <BsLinkedin />
+          <FiLinkedin aria-hidden="true" />
         </a>
-        <a target="blank" href="https://www.instagram.com/sandeep_singh_mt/">
-          <FaSquareInstagram />
-        </a>
-        <a href="mailto:studysingh707@gmail.com">
-          <IoMdMail />
+        <a href="mailto:sandeep.singh.pro8@gmail.com" aria-label="Email Sandeep Singh">
+          <FiMail aria-hidden="true" />
         </a>
       </div>
-      <p>
-        &copy; 2023 Sandeep Singh. All Rights Reserved. | Built with ReactJS
-      </p>
     </footer>
   );
 };
