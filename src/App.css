@@ -420,8 +420,10 @@ main {
 
 .hero-name {
   display: grid;
+  align-items: start;
   gap: 0.02em;
-  width: 100%;
+  justify-items: start;
+  width: fit-content;
   max-width: 760px;
   clip-path: inset(0 100% 0 0);
   color: var(--text);
@@ -436,6 +438,7 @@ main {
 
 .hero-name span {
   display: block;
+  width: fit-content;
   white-space: nowrap;
 }
 
@@ -771,6 +774,10 @@ main {
   filter: drop-shadow(0 1px 6px rgba(0, 0, 0, 0.35));
 }
 
+.exp-company-text {
+  min-width: 0;
+}
+
 .exp-card.is-active .exp-logo-frame,
 .exp-card:hover .exp-logo-frame {
   border-color: rgba(0, 212, 170, 0.28);
@@ -803,6 +810,11 @@ main {
   flex-wrap: wrap;
   gap: 0.6rem;
   margin-bottom: 1rem;
+}
+
+.exp-company-text .exp-meta {
+  margin-top: 0.72rem;
+  margin-bottom: 0;
 }
 
 .exp-date,

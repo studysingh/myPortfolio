@@ -524,18 +524,17 @@ const Home = () => {
                     <div className="exp-company-text">
                       <span className="exp-company-name">{role.company}</span>
                       <h3 className="exp-role-title">{role.role}</h3>
+                      <div className="exp-meta">
+                        <span className="exp-date">
+                          <FiCalendar size={12} aria-hidden="true" />
+                          {role.dates}
+                        </span>
+                        <span className="exp-location">
+                          <FiMapPin size={12} aria-hidden="true" />
+                          {role.location}
+                        </span>
+                      </div>
                     </div>
-                  </div>
-
-                  <div className="exp-meta">
-                    <span className="exp-date">
-                      <FiCalendar size={12} aria-hidden="true" />
-                      {role.dates}
-                    </span>
-                    <span className="exp-location">
-                      <FiMapPin size={12} aria-hidden="true" />
-                      {role.location}
-                    </span>
                   </div>
 
                   <p className="exp-summary">{role.summary}</p>
@@ -635,7 +634,7 @@ const Home = () => {
 
       <section id="contact" className="section contact-section" aria-labelledby="contact-title">
         <div className="section-inner contact-inner" data-reveal>
-          <p className="kicker">05 / Let's Connect</p>
+          <p className="kicker">05 / Let&apos;s Connect</p>
           <h2 id="contact-title" className="contact-heading">
             Open to the
             <br />
