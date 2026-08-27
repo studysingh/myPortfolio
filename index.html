@@ -5,27 +5,78 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/jpg" href="/myPortfolio/images/favicon.jpg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script type="text/javascript">
+  <meta
+    name="description"
+    content="Sandeep Singh — Software Engineer and AI Engineer specializing in production cloud infrastructure, Kubernetes automation, REST APIs, and LLM-powered data pipelines. Currently AI Engineer at Teradata."
+  />
+  <link rel="canonical" href="https://studysingh.github.io/myPortfolio/" />
+  <meta name="theme-color" content="#07080f" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Sandeep Singh | Software Engineer & AI Engineer" />
+  <meta
+    property="og:description"
+    content="Backend-first engineer building production cloud services, CI/CD automation, Kubernetes pipelines, REST APIs, and LLM-powered systems. Currently AI Engineer at Teradata."
+  />
+  <meta property="og:url" content="https://studysingh.github.io/myPortfolio/" />
+  <meta property="og:image" content="https://studysingh.github.io/myPortfolio/images/favicon.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sandeep Singh | Software Engineer & AI Engineer" />
+  <meta
+    name="twitter:description"
+    content="Backend-first engineer building production cloud services, Kubernetes pipelines, REST APIs, and LLM-powered systems."
+  />
+
+  <!-- Google Fonts: Space Grotesk (display) + Inter (body) + JetBrains Mono (code/labels) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Sandeep Singh",
+      "jobTitle": "Software Engineer / AI Engineer",
+      "email": "mailto:sandeep.singh.pro8@gmail.com",
+      "url": "https://studysingh.github.io/myPortfolio/",
+      "sameAs": [
+        "https://github.com/studysingh",
+        "https://www.linkedin.com/in/sandeep-singh-88304825b/"
+      ],
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Indian Institute of Technology (BHU), Varanasi"
+      },
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Teradata"
+      }
+    }
+  </script>
+
+  <!-- GitHub Pages SPA redirect handling -->
+  <script>
     (function (l) {
-      if (l.search[1] === "/") {
-        var decoded = l.search
+      if (l.search[1] === '/') {
+        var d = l.search
           .slice(1)
-          .split("&")
-          .map(function (s) {
-            return s.replace(/~and~/g, "&");
-          })
-          .join("?");
-        window.history.replaceState(
-          null,
-          null,
-          l.pathname.slice(0, -1) + decoded + l.hash
-        );
+          .split('&')
+          .map(function (s) { return s.replace(/~and~/g, '&'); })
+          .join('?');
+        window.history.replaceState(null, null, l.pathname.slice(0, -1) + d + l.hash);
       }
     })(window.location);
   </script>
-  <title>Sandeep Singh</title>
-  <script type="module" crossorigin src="/myPortfolio/assets/index-Deltt-Ix.js"></script>
-  <link rel="stylesheet" crossorigin href="/myPortfolio/assets/index-05Mv2nGA.css">
+
+  <title>Sandeep Singh | Software Engineer & AI Engineer</title>
+  <script type="module" crossorigin src="/myPortfolio/assets/index-e33X2y7w.js"></script>
+  <link rel="stylesheet" crossorigin href="/myPortfolio/assets/index-c6gKQOdt.css">
 </head>
 
 <body>
