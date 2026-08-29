@@ -115,10 +115,16 @@ export const EXPERIENCE = [
 ];
 
 export const ACHIEVEMENTS = [
-  { icon: "⚡", title: "LeetCode", desc: "480+ problems solved · 100 Days badge — 2026" },
+  {
+    icon: "⚡",
+    title: "LeetCode",
+    desc: "480+ problems solved · 100 Days badge — 2026",
+    link: "https://leetcode.com/u/firevision/",
+  },
   {
     icon: "🟢",
     title: "GeeksForGeeks",
     desc: "250+ problems solved · GFG T-Shirt awardee — 2026",
+    link: "https://www.geeksforgeeks.org/user/firevision/",
   },
 ];
