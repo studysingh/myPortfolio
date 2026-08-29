@@ -20,7 +20,7 @@ export const PROFILE = {
   ],
 };
 
-export const NAV_LINKS = ["About", "Experience", "Skills", "Projects", "Achievements"];
+export const NAV_LINKS = ["About", "Experience", "Skills", "Achievements"];
 
 export const STATS = [
   { value: "3+", label: "Companies worked with" },
@@ -111,30 +111,6 @@ export const EXPERIENCE = [
       "Orchestrated asynchronous workflows using Temporal.io, improving workflow reliability and failure handling.",
       "Worked with Python, BeautifulSoup, Selenium, Next.js, Temporal.io, and LLM APIs.",
     ],
-  },
-];
-
-export const PROJECTS = [
-  {
-    name: "Healthcare Management System",
-    stack: ["MongoDB", "React.js", "Node.js", "Express.js", "JWT", "Nodemailer"],
-    description:
-      "Developed a MERN-based healthcare platform with role-based access control, JWT authentication, appointment workflows, and automated email notifications for patient and admin operations.",
-    link: "https://github.com/studysingh/healthcare_management_system",
-  },
-  {
-    name: "RAG-based Sustainability Q&A",
-    stack: ["Python", "RAG", "LLM APIs", "Vector Search", "Document Retrieval"],
-    description:
-      "Built a question-answering system over sustainability reports, combining document retrieval and LLM reasoning to make enterprise knowledge easier to search and query.",
-    link: "https://github.com/studysingh",
-  },
-  {
-    name: "Cloud Automation & Monitoring",
-    stack: ["AWS", "Docker", "Kubernetes", "CI/CD", "Grafana"],
-    description:
-      "Created cloud deployment automation and operational dashboards to improve release reliability, production visibility, and secret management across service environments.",
-    link: "https://github.com/studysingh",
   },
 ];
 
