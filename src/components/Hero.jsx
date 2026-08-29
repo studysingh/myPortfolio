@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedin, FaPhone } from "react-icons/fa6";
+import { FaDownload, FaGithub, FaLinkedin, FaPhone } from "react-icons/fa6";
 import { styles } from "../theme/styles";
 import { PROFILE, TERMINAL_LINES } from "../data/portfolio";
 import { useTypewriter } from "../hooks/useTypewriter";
@@ -14,7 +14,7 @@ export function Hero() {
       <div style={styles.heroContent}>
         <div style={styles.badge}>
           <span style={styles.badgeDot} />
-          Available for opportunities
+          Software Engineer • Building resilient systems
         </div>
         <h1 style={styles.heroName}>{PROFILE.name}</h1>
         <div style={styles.heroRole}>
@@ -41,6 +41,9 @@ export function Hero() {
             style={styles.btnOutline}
           >
             <FaLinkedin /> LinkedIn
+          </a>
+          <a href={PROFILE.resume} download style={styles.btnGhost} className="lift">
+            <FaDownload /> Resume
           </a>
           <a href={`tel:${PROFILE.phone}`} className="lift" style={styles.btnGhost}>
             <FaPhone /> {PROFILE.phone}

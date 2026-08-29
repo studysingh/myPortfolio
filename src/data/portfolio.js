@@ -1,43 +1,44 @@
 export const PROFILE = {
   name: "Sandeep Singh",
   initials: "SS",
-  title: "AI Engineer · Backend & Cloud",
+  title: "Software Engineer · Cloud, Backend & AI",
   email: "sandeep.singh.pro8@gmail.com",
   phone: "+91-7078015115",
-  github: "https://github.com",
-  linkedin: "https://linkedin.com",
-  location: "India · Open to Remote",
-  education: "IIT (BHU) Varanasi · B.Tech CSE · CGPA 7.74",
+  github: "https://github.com/studysingh",
+  linkedin: "https://www.linkedin.com/in/sandeep-singh-88304825b/",
+  resume: "./Sandeep_Singh_Resume.pdf",
+  location: "India · Remote-friendly",
+  education: "IIT (BHU) Varanasi · B.Tech in Computer Science and Engineering · CGPA 7.74",
   summary:
-    "I build reliable, production-grade software across backend systems, cloud infrastructure, and AI pipelines. From CI/CD automation and Kubernetes secrets management to RAG systems and LLM classification pipelines — I turn complex requirements into shipping products.",
+    "Software Engineer with experience building backend services, REST APIs, and cloud applications using Python, JavaScript, AWS, Docker, and Kubernetes. I focus on reliable, production-grade systems with strong engineering fundamentals, CI/CD automation, and AI-driven product development.",
   roles: [
-    "AI Engineer",
+    "Software Engineer",
     "Backend Developer",
-    "Cloud & DevOps",
-    "Full Stack Dev",
-    "Problem Solver",
+    "Cloud Engineer",
+    "AI Systems Builder",
+    "Full Stack Engineer",
   ],
 };
 
-export const NAV_LINKS = ["About", "Experience", "Skills", "Achievements"];
+export const NAV_LINKS = ["About", "Experience", "Skills", "Projects", "Achievements"];
 
 export const STATS = [
-  { value: "3+", label: "Roles shipped" },
-  { value: "480+", label: "LeetCode solved" },
-  { value: "AI · Cloud", label: "Core focus" },
-  { value: "IIT BHU", label: "CS Graduate" },
+  { value: "3+", label: "Companies worked with" },
+  { value: "480+", label: "LeetCode problems solved" },
+  { value: "AWS · K8s", label: "Cloud & DevOps stack" },
+  { value: "IIT BHU", label: "Computer Science graduate" },
 ];
 
 export const HIGHLIGHTS = [
-  "Automated CI/CD for production cloud services with Docker + Kubernetes",
-  "Built RAG & LLM pipelines over real-world enterprise documents",
-  "Designed scalable crawlers and async workflows with Temporal.io",
-  "Secured cross-service auth with SSO, 2FA, and secrets management",
+  "Automated CI/CD for production cloud services using Docker, Kubernetes, and deployment configuration changes.",
+  "Built RAG and LLM-powered workflows for enterprise document retrieval and question answering.",
+  "Developed scalable crawlers, REST APIs, and async orchestration pipelines for data-intensive products.",
+  "Worked across backend, cloud, and full-stack systems with strong focus on security, observability, and reliability.",
 ];
 
 export const TERMINAL_LINES = [
-  { cmd: "whoami", out: "AI Engineer @ Teradata" },
-  { cmd: "cat skills.txt", out: "Python · Node · AWS · K8s · LLMs" },
+  { cmd: "whoami", out: "Software Engineer @ Teradata" },
+  { cmd: "cat skills.txt", out: "Python · JavaScript · AWS · K8s · LLMs" },
   { cmd: "echo $EDUCATION", out: "IIT BHU · CSE · 2026" },
   { cmd: "leetcode --stats", out: "480+ solved · 100 Days badge ✓" },
 ];
@@ -66,14 +67,14 @@ export const EXPERIENCE = [
     period: "Jun 2026 – Present",
     type: "Remote",
     color: "#F2611C",
-    logo: "/logos/teradata.png",
+    logo: "./logos/teradata.png",
     summary:
-      "Owning CI/CD automation, secrets management, and observability for production cloud services.",
+      "Partnering with production engineering teams to automate deployments, strengthen Kubernetes security, and make cloud operations more observable and reliable.",
     bullets: [
-      "Implemented CI/CD automation for production cloud services — Docker builds triggered by K8s YAML and shell script changes.",
-      "Integrated AWS Secrets Manager with Kubernetes via External Secrets Operator across Azure and GCP environments.",
-      "Built a requirements engineering pipeline that auto-generates requirement-gathering questions from software specs.",
-      "Created Grafana dashboards for production monitoring — service health, deployment metrics, and operational observability.",
+      "Implemented CI/CD automation for production cloud services, triggering Docker image builds based on changes to deployment configurations, shell scripts, and Kubernetes YAML manifests.",
+      "Implemented Kubernetes secret management using External Secrets Operator (ESO), integrating AWS Secrets Manager with Kubernetes and supporting cloud environments including Azure and GCP.",
+      "Contributed to requirements engineering automation by building a pipeline that analyzes software requirements and generates relevant requirement-gathering questions, reducing manual discussion effort.",
+      "Built Grafana dashboards for production monitoring and observability, visualizing service health, deployment metrics, and operational performance to improve system visibility and troubleshooting.",
     ],
   },
   {
@@ -82,14 +83,15 @@ export const EXPERIENCE = [
     period: "Feb 2026 – Jun 2026",
     type: "Remote",
     color: "#0E9F6E",
-    logo: "/logos/ge3s.png",
+    logo: "./logos/ge3s.png",
     summary:
-      "Built a centralized MERN platform with AI-powered document Q&A and secure authentication.",
+      "Built a centralized backend and web platform for multiple organizational workflows, integrating AI-powered document search and secure authentication across services.",
     bullets: [
-      "Built a centralized MERN platform with RESTful APIs powering multiple organizational workflows.",
-      "Developed RAG systems for Q&A over sustainability reports using document retrieval + LLM responses.",
-      "Implemented SSO and 2FA for secure cross-service authentication.",
-      "Integrated OpenAI, Stripe, and email automation APIs for AI, subscription, and communication workflows.",
+      "Developed a centralized backend and web platform using React, Node.js, Express.js, and MongoDB, building RESTful APIs for multiple organizational workflows.",
+      "Developed Retrieval-Augmented Generation (RAG) systems for question answering over sustainability reports, integrating document retrieval with LLM-based responses.",
+      "Implemented SSO and 2FA for secure authentication across multiple organizational tools and services.",
+      "Built scalable RESTful APIs and integrated third-party services including OpenAI, Stripe, and email automation for AI, subscription, and communication workflows.",
+      "Containerized and deployed applications using Docker and AWS, supporting production-oriented cloud deployment and infrastructure management.",
     ],
   },
   {
@@ -98,20 +100,45 @@ export const EXPERIENCE = [
     period: "May 2025 – Jul 2025",
     type: "Remote",
     color: "#E11D48",
-    logo: "/logos/zoominfo.png",
+    logo: "./logos/zoominfo.png",
     summary:
-      "Shipped a scalable crawling + LLM classification pipeline with reliable async orchestration.",
+      "Built a data-intensive web crawling and classification pipeline to extract structured product insights and power downstream intelligence workflows.",
     bullets: [
-      "Built a scalable web crawler extracting product URLs, metadata, and structured content across company sites.",
-      "Designed an LLM classification pipeline to label value propositions and pain points from crawled content.",
-      "Orchestrated async workflows with Temporal.io to improve reliability and failure handling.",
-      "Shipped RESTful APIs in Next.js for efficient downstream data serving.",
+      "Developed a scalable web crawler to extract product URLs, metadata, and structured content from multiple company websites using keyword-based discovery logic.",
+      "Implemented data cleaning and preprocessing to reduce noise, duplicates, and inconsistencies in extracted web data.",
+      "Built an LLM-based classification pipeline to identify and label value propositions and pain points from extracted content.",
+      "Designed RESTful APIs using Next.js for efficient data serving and integration with downstream workflows.",
+      "Orchestrated asynchronous workflows using Temporal.io, improving workflow reliability and failure handling.",
+      "Worked with Python, BeautifulSoup, Selenium, Next.js, Temporal.io, and LLM APIs.",
     ],
   },
 ];
 
+export const PROJECTS = [
+  {
+    name: "Healthcare Management System",
+    stack: ["MongoDB", "React.js", "Node.js", "Express.js", "JWT", "Nodemailer"],
+    description:
+      "Developed a MERN-based healthcare platform with role-based access control, JWT authentication, appointment workflows, and automated email notifications for patient and admin operations.",
+    link: "https://github.com/studysingh/healthcare_management_system",
+  },
+  {
+    name: "RAG-based Sustainability Q&A",
+    stack: ["Python", "RAG", "LLM APIs", "Vector Search", "Document Retrieval"],
+    description:
+      "Built a question-answering system over sustainability reports, combining document retrieval and LLM reasoning to make enterprise knowledge easier to search and query.",
+    link: "https://github.com/studysingh",
+  },
+  {
+    name: "Cloud Automation & Monitoring",
+    stack: ["AWS", "Docker", "Kubernetes", "CI/CD", "Grafana"],
+    description:
+      "Created cloud deployment automation and operational dashboards to improve release reliability, production visibility, and secret management across service environments.",
+    link: "https://github.com/studysingh",
+  },
+];
+
 export const ACHIEVEMENTS = [
-  { icon: "🏆", title: "JEE Advanced", desc: "Top 0.5% nationwide — 2022" },
   { icon: "⚡", title: "LeetCode", desc: "480+ problems solved · 100 Days badge — 2026" },
   {
     icon: "🟢",

@@ -4,6 +4,7 @@ import { Hero } from "./components/Hero";
 import { Stats } from "./components/Stats";
 import { Experience } from "./components/Experience";
 import { Skills } from "./components/Skills";
+import { Projects } from "./components/Projects";
 import { Achievements } from "./components/Achievements";
 import { Footer } from "./components/Footer";
 
@@ -16,6 +17,7 @@ export default function App() {
       <Stats />
       <Experience />
       <Skills />
+      <Projects />
       <Achievements />
       <Footer />
     </div>

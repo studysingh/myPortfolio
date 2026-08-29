@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaEnvelope } from "react-icons/fa6";
+import { FaDownload, FaEnvelope } from "react-icons/fa6";
 import { styles } from "../theme/styles";
 import { NAV_LINKS, PROFILE } from "../data/portfolio";
 import { useScrollTrigger, scrollToSection } from "../hooks/useScrollTrigger";
@@ -38,8 +38,11 @@ export function Navbar() {
                 {n}
               </button>
             ))}
+            <a href={PROFILE.resume} download className="cta-hover" style={styles.navCta}>
+              <FaDownload /> Resume
+            </a>
             <a href={`mailto:${PROFILE.email}`} className="cta-hover" style={styles.navCta}>
-              <FaEnvelope /> Hire Me
+              <FaEnvelope /> Connect
             </a>
           </div>
         )}
@@ -58,6 +61,9 @@ export function Navbar() {
               {n}
             </button>
           ))}
+          <a href={PROFILE.resume} download style={styles.mobileLink}>
+            Download Resume
+          </a>
         </div>
       )}
     </nav>
