@@ -1,18 +1,23 @@
-import "./App.css";
-import Header from "./header";
-import Footer from "./footer";
-import Home from "./home";
+import { styles } from "./theme/styles";
+import { Navbar } from "./components/Navbar";
+import { Hero } from "./components/Hero";
+import { Stats } from "./components/Stats";
+import { Experience } from "./components/Experience";
+import { Skills } from "./components/Skills";
+import { Achievements } from "./components/Achievements";
+import { Footer } from "./components/Footer";
 
-function App() {
+export default function App() {
   return (
-    <>
-      <Header />
-      <main>
-        <Home />
-      </main>
+    <div style={styles.root}>
+      <div style={styles.gridBg} />
+      <Navbar />
+      <Hero />
+      <Stats />
+      <Experience />
+      <Skills />
+      <Achievements />
       <Footer />
-    </>
+    </div>
   );
 }
-
-export default App;

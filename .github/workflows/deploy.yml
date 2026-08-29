@@ -5,26 +5,25 @@ on:
     branches: [main]
   workflow_dispatch:
 
-# NOTE: After pushing this file, go to your GitHub repository:
-# Settings → Pages → Source → "GitHub Actions"
-# Then go to Settings → Environments → github-pages → Deployment branches
-# → Add "main" as an allowed branch if it is not already listed.
+# Allow the workflow to publish to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
+# Only run one deployment at a time; don't cancel an in-progress production deploy
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
   build:
-    name: Build
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js 20
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -33,21 +32,20 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build production bundle
+      - name: Build
         run: npm run build
 
-      - name: Upload Pages artifact
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
 
   deploy:
-    name: Deploy
     needs: build
     runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
